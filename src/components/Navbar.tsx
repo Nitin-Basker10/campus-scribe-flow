@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import iitmLogo from "@/assets/iitm-logo.png";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl" style={{ boxShadow: "0 1px 30px -5px hsl(0 78% 48% / 0.08)" }}>
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={iitmLogo} alt="IIT Madras" className="h-9 w-9 rounded-full ring-1 ring-primary/30 shadow-[0_0_12px_hsl(var(--primary)/0.3)]" />
+          <img src={logo} alt="Anna University" className="h-9 w-9 rounded-full ring-1 ring-primary/30 shadow-[0_0_12px_hsl(var(--primary)/0.3)]" />
           <span className="text-lg font-bold tracking-tight">
             MIT<span className="text-primary">hub</span>
           </span>
