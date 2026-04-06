@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock, Tag } from "lucide-react";
+import { Calendar, MapPin, Clock, Tag, Share2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { toast } from "sonner";
 
 const events = [
   {
@@ -42,6 +43,16 @@ const events = [
   },
 ];
 
+function handleShare(event: (typeof events)[0]) {
+  const text = `🎯 ${event.title}\n📅 ${event.date} · ${event.time}\n📍 ${event.venue}\n\n${event.desc}\n\nShared from MIT Campus Hub`;
+  if (navigator.share) {
+    navigator.share({ title: event.title, text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text);
+    toast.success("Event details copied to clipboard!");
+  }
+}
+
 export default function EventsPage() {
   return (
     <div className="min-h-screen">
@@ -71,13 +82,24 @@ export default function EventsPage() {
                     : "border-border hover:border-primary/20"
                 }`}
               >
-                {event.featured && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 mb-3 text-[10px] font-mono font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
-                    ★ FEATURED
-                  </span>
-                )}
-                <h3 className="text-xl font-bold text-foreground">{event.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{event.desc}</p>
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    {event.featured && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 mb-3 text-[10px] font-mono font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                        ★ FEATURED
+                      </span>
+                    )}
+                    <h3 className="text-xl font-bold text-foreground">{event.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{event.desc}</p>
+                  </div>
+                  <button
+                    onClick={() => handleShare(event)}
+                    className="ml-4 p-2.5 rounded-md border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors shrink-0"
+                    title="Share event"
+                  >
+                    <Share2 className="h-4 w-4" />
+                  </button>
+                </div>
                 <div className="flex flex-wrap gap-4 mt-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5" /> {event.date}
