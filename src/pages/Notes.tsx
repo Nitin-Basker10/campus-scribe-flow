@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Download, FileText, Filter } from "lucide-react";
+import { BookOpen, Download, FileText, Filter, Plus } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,14 +29,25 @@ export default function NotesPage() {
       <Navbar />
       <main className="pt-24 pb-20">
         <div className="container px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl font-bold tracking-tight mb-2">
-              STUDY <span className="text-primary">NOTES</span>
-            </h1>
-            <p className="text-muted-foreground mb-8 max-w-lg">
-              Access and share academic notes filtered by department and year. Login required to download.
-            </p>
-          </motion.div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-4xl font-bold tracking-tight mb-2">
+                STUDY <span className="text-primary">NOTES</span>
+              </h1>
+              <p className="text-muted-foreground max-w-lg">
+                Access and share academic notes filtered by department and year. Login required to download.
+              </p>
+            </motion.div>
+
+            <motion.button 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors shrink-0 glow-red"
+            >
+              <Plus className="h-4 w-4" />
+              Add Note
+            </motion.button>
+          </div>
 
           {/* Filters */}
           <div className="flex flex-wrap items-center gap-3 mb-8">

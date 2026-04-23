@@ -15,7 +15,7 @@ export default function HeroSection() {
         />
         {/* Multi-layer crimson gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0_78%_48%/0.06)] via-transparent to-[hsl(0_78%_48%/0.04)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(357_79%_56%/0.06)] via-transparent to-[hsl(357_79%_56%/0.04)]" />
         <div className="absolute inset-0 scanline pointer-events-none" />
       </div>
 
@@ -23,9 +23,9 @@ export default function HeroSection() {
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       {/* Crimson glow orbs — multiple for depth */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[hsl(0_78%_48%/0.06)] blur-[140px] animate-pulse-glow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(0_85%_40%/0.04)] blur-[100px] animate-pulse-glow pointer-events-none" style={{ animationDelay: "1.5s" }} />
-      <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] rounded-full bg-[hsl(0_70%_35%/0.05)] blur-[80px] animate-pulse-glow pointer-events-none" style={{ animationDelay: "3s" }} />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[hsl(357_79%_56%/0.06)] blur-[140px] animate-pulse-glow pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(357_79%_56%/0.04)] blur-[100px] animate-pulse-glow pointer-events-none" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] rounded-full bg-[hsl(357_79%_56%/0.05)] blur-[80px] animate-pulse-glow pointer-events-none" style={{ animationDelay: "3s" }} />
 
       <div className="relative z-10 container text-center px-4">
         <motion.div

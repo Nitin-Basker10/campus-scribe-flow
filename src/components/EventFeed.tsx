@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, BookOpen, Code, Trophy } from "lucide-react";
+import { Calendar, Users, BookOpen, Code, Trophy, CalendarPlus, Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 const events = [
   {
@@ -80,10 +81,28 @@ export default function EventFeed() {
                 </p>
               </div>
               <span
-                className={`hidden sm:inline-flex px-3 py-1 text-xs font-mono rounded-full border ${typeColor[event.type]}`}
+                className={`hidden sm:inline-flex px-3 py-1 text-xs font-mono rounded-full border ${typeColor[event.type]} mr-2`}
               >
                 {event.type}
               </span>
+              
+              {/* Event Actions */}
+              <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button 
+                  onClick={(e) => { e.stopPropagation(); toast("Event added to calendar!"); }}
+                  className="p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-md transition-colors"
+                  title="Add to Calendar"
+                >
+                  <CalendarPlus className="h-4 w-4" />
+                </button>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(window.location.href); toast("Event link copied to clipboard!"); }}
+                  className="p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-md transition-colors"
+                  title="Share Event"
+                >
+                  <Share2 className="h-4 w-4" />
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

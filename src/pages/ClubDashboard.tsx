@@ -1,8 +1,22 @@
 import { useState } from "react";
-import { Users, Eye, Megaphone, Send, Crosshair } from "lucide-react";
+import { Users, Eye, Megaphone, Send, Crosshair, ImagePlus } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ClubDashboard() {
   const [announcementSent, setAnnouncementSent] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState("");
+
+  const handlePostPhoto = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!photoUrl) return;
+    
+    const existing = JSON.parse(localStorage.getItem("campus_photos") || "[]");
+    existing.unshift(photoUrl);
+    localStorage.setItem("campus_photos", JSON.stringify(existing));
+    
+    toast("Photo successfully posted to the home screen gallery!");
+    setPhotoUrl("");
+  };
 
   return (
     <div className="container mx-auto py-10 px-4 mt-16 max-w-5xl">
@@ -93,6 +107,31 @@ export default function ClubDashboard() {
               Initiate Drive
             </button>
           </div>
+        </section>
+
+        {/* Global Photo Post */}
+        <section className="bg-card border border-border rounded-xl p-6 shadow-sm md:col-span-2 mt-4">
+          <div className="flex items-center gap-2 mb-6">
+            <ImagePlus className="h-5 w-5 text-primary" />
+            <h2 className="text-xl font-semibold">Post Global Photo</h2>
+          </div>
+          <p className="text-sm text-muted-foreground mb-6">
+            Share a high-quality club cover photo or recent achievement! It will appear directly on the homepage 
+            fade-away gallery for all students to see.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-4" onSubmit={handlePostPhoto}>
+            <input 
+              type="url" 
+              value={photoUrl}
+              onChange={(e) => setPhotoUrl(e.target.value)}
+              placeholder="e.g. https://images.unsplash.com/photo-..." 
+              className="flex-1 bg-secondary border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-primary" 
+              required
+            />
+            <button className="px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-md flex items-center justify-center gap-2 glow-red hover:glow-red-strong transition-all shrink-0">
+              Publish Photo <Send className="h-4 w-4" />
+            </button>
+          </form>
         </section>
 
       </div>

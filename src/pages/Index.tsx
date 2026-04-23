@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import PhotoFeed from "@/components/PhotoFeed";
 import AnnouncementSlider from "@/components/AnnouncementSlider";
 import EventFeed from "@/components/EventFeed";
 import Footer from "@/components/Footer";
@@ -9,6 +10,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <PhotoFeed />
       <AnnouncementSlider />
       <EventFeed />
       <Footer />

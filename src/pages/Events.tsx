@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock, Tag } from "lucide-react";
+import { Calendar, MapPin, Clock, Tag, CalendarPlus, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -78,19 +79,35 @@ export default function EventsPage() {
                 )}
                 <h3 className="text-xl font-bold text-foreground">{event.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{event.desc}</p>
-                <div className="flex flex-wrap gap-4 mt-4 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
+                <div className="flex flex-wrap gap-2 mt-4 text-xs">
+                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border text-muted-foreground bg-secondary/10">
                     <Calendar className="h-3.5 w-3.5" /> {event.date}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border text-muted-foreground bg-secondary/10">
                     <Clock className="h-3.5 w-3.5" /> {event.time}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border text-muted-foreground bg-secondary/10">
                     <MapPin className="h-3.5 w-3.5" /> {event.venue}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border text-muted-foreground bg-secondary/10">
                     <Tag className="h-3.5 w-3.5" /> {event.type}
                   </span>
+                </div>
+
+                {/* Event Actions */}
+                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border/50 opacity-80 hover:opacity-100 transition-opacity">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); toast("Event added to calendar!"); }}
+                    className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1.5 rounded-md hover:bg-primary/10"
+                  >
+                    <CalendarPlus className="h-3.5 w-3.5" /> Add to Calendar
+                  </button>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(window.location.href); toast("Event link copied to clipboard!"); }}
+                    className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1.5 rounded-md hover:bg-primary/10"
+                  >
+                    <Share2 className="h-3.5 w-3.5" /> Share
+                  </button>
                 </div>
               </motion.div>
             ))}
