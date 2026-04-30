@@ -4,12 +4,27 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const clubs = [
-  { name: "Coding Club", members: 240, desc: "Competitive programming, dev sprints & hackathons", tags: ["Tech", "Open"] },
-  { name: "Shutter Club", members: 85, desc: "Campus photography, workshops & exhibitions", tags: ["Creative", "Open"] },
-  { name: "Robotics Society", members: 60, desc: "Build bots, compete in nationals", tags: ["Tech", "Selective"] },
-  { name: "Literary Circle", members: 120, desc: "Debates, poetry slams & magazine publication", tags: ["Literary", "Open"] },
-  { name: "Music Club", members: 95, desc: "Jam sessions, open mics & annual fest performances", tags: ["Creative", "Open"] },
-  { name: "Entrepreneurship Cell", members: 150, desc: "Startup incubation, pitch nights & mentorship", tags: ["Business", "Open"] },
+  { name: "BRC", members: 100, desc: "Book Readers Club", tags: ["Sports"] },
+  { name: "NSS", members: 200, desc: "National Service Scheme", tags: ["Service"] },
+  { name: "NSO", members: 150, desc: "National Sports Organization", tags: ["Sports"] },
+  { name: "YRC", members: 180, desc: "Youth Red Cross", tags: ["Service"] },
+  { name: "Athenaeum", members: 100, desc: "The English Literary Society", tags: ["Literary"] },
+  { name: "PDA", members: 90, desc: "Personality Development Association", tags: ["Development"] },
+  { name: "Tamil Mandram", members: 150, desc: "Tamil literary and cultural society", tags: ["Cultural"] },
+  { name: "Rotaract Club", members: 250, desc: "Community service and leadership", tags: ["Service"] },
+  { name: "Computer Society", members: 300, desc: "Computer Society of MIT", tags: ["Tech"] },
+  { name: "TBO", members: 100, desc: "The BAJA SAE India", tags: ["Tech"] },
+  { name: "MIT Quill", members: 80, desc: "The official literary club", tags: ["Literary"] },
+  { name: "Variety Team", members: 120, desc: "Official cultural team", tags: ["Cultural"] },
+  { name: "Museum", members: 50, desc: "MIT Museum", tags: ["Heritage"] },
+  { name: "MITRA", members: 100, desc: "Social service organization", tags: ["Service"] },
+  { name: "TEDC", members: 150, desc: "Entrepreneurship Development Cell", tags: ["Business"] },
+  { name: "AUSEC", members: 100, desc: "Aero Unmanned Systems", tags: ["Tech"] },
+  { name: "QUANTUM", members: 100, desc: "Quantum Club", tags: ["Tech"] },
+  { name: "Raptorsclubmit", members: 80, desc: "Raptors Club", tags: ["Tech"] },
+  { name: "PSMIT", members: 100, desc: "Photographic Society", tags: ["Creative"] },
+  { name: "Quiz Club", members: 90, desc: "Official Quiz Club", tags: ["Literary"] },
+  { name: "Vibez", members: 120, desc: "Dance and Music", tags: ["Cultural"] },
 ];
 
 export default function ClubsPage() {

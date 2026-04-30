@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Users, Shield, ArrowRight, CheckCircle, Send, ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import iitmLogo from "@/assets/iitm-logo.png";
+import auLogo from "@/assets/au-logo.jpg";
 
 type Role = "student" | "club" | "admin";
 type StudentMode = "login" | "signup";
@@ -47,9 +47,9 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="flex items-center justify-center gap-2.5 mb-8">
           <img
-            src={iitmLogo}
+            src={auLogo}
             alt="MIT"
-            className="h-11 w-11 rounded-full ring-1 ring-primary/30 shadow-[0_0_16px_hsl(var(--primary)/0.3)]"
+            className="h-11 w-11 rounded-full ring-1 ring-primary/30 shadow-[0_0_16px_hsl(var(--primary)/0.3)] bg-white p-1"
           />
           <span className="text-2xl font-bold tracking-tight">
             MIT<span className="text-primary">hub</span>
