@@ -37,7 +37,7 @@ export default function AdminDashboard() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight flex items-center gap-3">
             <ShieldCheck className="h-8 w-8 text-primary" />
-            MIThub Sentinel (Admin)
+            Aunova Sentinel (Admin)
           </h1>
           <p className="text-muted-foreground mt-1">Global ecosystem moderation and oversight</p>
         </div>

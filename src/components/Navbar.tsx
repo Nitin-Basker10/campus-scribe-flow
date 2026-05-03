@@ -21,7 +21,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2.5 group">
           <img src={auLogo} alt="Anna University" className="h-9 w-9 rounded-full ring-1 ring-primary/30 shadow-[0_0_12px_hsl(var(--primary)/0.3)] bg-white p-0.5" />
           <span className="text-lg font-bold tracking-tight">
-            MIT<span className="text-primary">hub</span>
+            Au<span className="text-primary">nova</span>
           </span>
         </Link>
 

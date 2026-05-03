@@ -49,8 +49,8 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-6 max-w-xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
-            One hub for everything MIT. Announcements, events, clubs, notes — no
-            more scattered WhatsApp groups and missed deadlines.
+            All your campus updates at one place
+            Zero noise , no more scattered messages and never face a deadline
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

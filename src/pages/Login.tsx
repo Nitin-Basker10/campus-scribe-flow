@@ -6,6 +6,7 @@ import auLogo from "@/assets/au-logo.jpg";
 
 type Role = "student" | "club" | "admin";
 type StudentMode = "login" | "signup";
+type ClubMode = "login" | "request";
 
 const inputClass =
   "w-full px-4 py-2.5 rounded-md bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all";
@@ -30,6 +31,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState<Role>("student");
   const [studentMode, setStudentMode] = useState<StudentMode>("login");
+  const [clubMode, setClubMode] = useState<ClubMode>("login");
   const [isMIT, setIsMIT] = useState(true);
   const [clubRequestSent, setClubRequestSent] = useState(false);
 
@@ -52,7 +54,7 @@ export default function LoginPage() {
             className="h-11 w-11 rounded-full ring-1 ring-primary/30 shadow-[0_0_16px_hsl(var(--primary)/0.3)] bg-white p-1"
           />
           <span className="text-2xl font-bold tracking-tight">
-            MIT<span className="text-primary">hub</span>
+            Au<span className="text-primary">nova</span>
           </span>
         </div>
 
@@ -169,7 +171,40 @@ export default function LoginPage() {
             {/* ───── CLUB / ORG ───── */}
             {selectedRole === "club" && (
               <motion.div key="club" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
-                {clubRequestSent ? (
+                {/* Login / Request tabs */}
+                <div className="flex rounded-md overflow-hidden border border-border mb-6">
+                  {(["login", "request"] as ClubMode[]).map((m) => (
+                    <button
+                      key={m}
+                      onClick={() => setClubMode(m)}
+                      className={`flex-1 py-2 text-xs font-semibold capitalize transition-all ${
+                        clubMode === m ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {m === "login" ? "Log In" : "Request Access"}
+                    </button>
+                  ))}
+                </div>
+
+                {clubMode === "login" ? (
+                  <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); navigate("/"); }}>
+                    <div>
+                      <label className={labelClass}>Club Email</label>
+                      <input type="email" placeholder="club@college.edu" className={inputClass} required />
+                    </div>
+                    <div>
+                      <label className={labelClass}>Password</label>
+                      <input type="password" placeholder="••••••••" className={inputClass} required />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md bg-primary text-primary-foreground font-semibold text-sm glow-red hover:glow-red-strong transition-shadow"
+                    >
+                      Club Login
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </form>
+                ) : clubRequestSent ? (
                   <div className="flex flex-col items-center gap-4 py-6 text-center">
                     <CheckCircle className="h-14 w-14 text-primary" />
                     <h3 className="text-lg font-bold text-foreground">Request Sent!</h3>

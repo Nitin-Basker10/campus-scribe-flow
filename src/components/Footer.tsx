@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Zap className="h-4 w-4 text-primary" />
           <span className="text-sm font-semibold">
-            MIT<span className="text-primary">hub</span>
+            Au<span className="text-primary">nova</span>
           </span>
         </div>
         <p className="text-xs text-muted-foreground font-mono">
-          © 2026 MIThub · Deconstructing campus, one update at a time.
+          © 2026 Aunova · Deconstructing campus, one update at a time.
         </p>
       </div>
     </footer>
